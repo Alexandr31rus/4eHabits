@@ -1,0 +1,37 @@
+# Version control
+.git/
+.gitignore
+
+# Virtual environments
+.venv/
+venv/
+
+# Environment variables (секреты не должны попадать в образ)
+.env
+.env.local
+
+# Python caches
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Logs
+logs/
+*.log
+
+# Data
+data/
+
+# IDE
+.idea/
+.vscode/
+
+# Docs
+*.md
+README.md
+
+# Tests (не нужны в прод-образе)
+tests/
