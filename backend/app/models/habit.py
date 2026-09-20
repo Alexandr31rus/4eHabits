@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import UTC, datetime
 from typing import TYPE_CHECKING
 
-from sqlalchemy import ForeignKey, String
+from sqlalchemy import DateTime, ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base
@@ -21,7 +21,9 @@ class Habit(Base):
     description: Mapped[str | None] = mapped_column(String(255), nullable=True)
     goal: Mapped[str | None] = mapped_column(String(100), nullable=True)
     target_days: Mapped[int] = mapped_column(default=21)
-    created_at: Mapped[datetime] = mapped_column(default=lambda: datetime.now(UTC))
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=lambda: datetime.now(UTC)
+    )
 
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"))
     user: Mapped[User] = relationship(back_populates="habits")
