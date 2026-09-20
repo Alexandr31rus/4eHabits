@@ -21,5 +21,12 @@ class Settings(BaseSettings):
         env_file=ENV_FILE, extra="ignore", env_file_encoding="utf-8"
     )
 
+    @property
+    def DATABASE_URL(self) -> str:
+        return (
+            f"postgresql+asyncpg://{self.DB_USER}:{self.DB_PASSWORD}"
+            f"@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
+        )
 
-settings = Settings()
+
+settings = Settings()  #  type: ignore[call-arg]
