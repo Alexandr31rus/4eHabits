@@ -20,7 +20,6 @@ class HabitCompletion(Base):
         ),
     )
 
-    id: Mapped[int] = mapped_column(primary_key=True)
     habit_id: Mapped[int] = mapped_column(ForeignKey("habits.id", ondelete="CASCADE"))
     completion_date: Mapped[date] = mapped_column()
     is_completed: Mapped[bool] = mapped_column(default=False)

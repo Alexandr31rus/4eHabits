@@ -15,7 +15,6 @@ if TYPE_CHECKING:
 class User(Base):
     __tablename__ = "users"
 
-    id: Mapped[int] = mapped_column(primary_key=True)
     telegram_id: Mapped[BigInteger] = mapped_column(BigInteger, unique=True)
     username: Mapped[str] = mapped_column(String(64))
     hashed_password: Mapped[str] = mapped_column(String(255))

@@ -16,7 +16,6 @@ if TYPE_CHECKING:
 class Habit(Base):
     __tablename__ = "habits"
 
-    id: Mapped[int] = mapped_column(primary_key=True)
     title: Mapped[str] = mapped_column(String(60))
     description: Mapped[str | None] = mapped_column(String(255), nullable=True)
     goal: Mapped[str | None] = mapped_column(String(100), nullable=True)
