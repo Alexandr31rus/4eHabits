@@ -7,7 +7,10 @@ from loguru import logger
 from app.core.config import settings
 
 LOGS_DIR = Path(__file__).resolve().parents[2] / "logs"
-LOG_FORMAT = "{time:YYYY-MM-DD HH:mm:ss.SSS} | {level: <8} | {name}:{function}:{line} - {message}"
+LOG_FORMAT = (
+    "{time:YYYY-MM-DD HH:mm:ss.SSS} | {level: <8} | "
+    "{name}:{function}:{line} - {message}"
+)
 
 
 class InterceptHandler(logging.Handler):
