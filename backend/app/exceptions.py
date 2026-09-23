@@ -15,3 +15,11 @@ class InvalidCredentialsError(AppError):
 
     def __init__(self) -> None:
         super().__init__("Неверные учётные данные")
+
+
+class HabitNotFoundError(AppError):
+    """Привычка не найдена или не принадлежит пользователю."""
+
+    def __init__(self, habit_id: int) -> None:
+        self.habit_id = habit_id
+        super().__init__("Привычка не найдена")
